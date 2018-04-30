@@ -36,10 +36,12 @@ $(document).ready(function() {
                 wins++;
                 $('#wins').text(wins);
                 reset();
+                $('#win-losse').text('You win!!');
             } else if (counter > randomTargerNumber) {
                 losses++;
                 $('#losses').text(losses);
                 reset();
+                $('#win-losse').text('You lose!!');
             }
     });
         
@@ -53,10 +55,12 @@ $(document).ready(function() {
                 wins++;
                 $('#wins').text(wins);
                 reset();
+                $('#win-losse').text('You win!!');
             } else if (counter > randomTargerNumber) {
                 losses++;
                 $('#losses').text(losses);
                 reset();
+                $('#win-losse').text('You lose!!');
             }
     });      
     
@@ -70,10 +74,12 @@ $(document).ready(function() {
                 wins++;
                 $('#wins').text(wins);
                 reset();
+                $('#win-losse').text('You win!!');
             } else if (counter > randomTargerNumber) {
                 losses++;
                 $('#losses').text(losses);
                 reset();
+                $('#win-losse').text('You lose!!');
             }
     });        
     
@@ -87,10 +93,12 @@ $(document).ready(function() {
             wins++;
             $('#wins').text(wins);
             reset();
+            $('#win-losse').text('You win!!');
         } else if (counter > randomTargerNumber) {
             losses++;
             $('#losses').text(losses);
             reset();
+            $('#win-losse').text('You lose!!');
         }
     });
 
@@ -106,6 +114,7 @@ function reset(){
     c2 = Math.round(Math.random() * 7) + 1;
     c3 = Math.round(Math.random() * 6) + 1;
     c4 = Math.round(Math.random() * 5) + 1;
+    
 }
 
 
