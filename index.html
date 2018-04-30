@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal Game</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- my css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- jQuery -->
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <!-- Instructions -->
+        <div class="jumbotron">
+            <h1 class="text-center">Cristal Colector</h1>
+            <hr>
+            <h6><em><strong>1 · </strong>You will be given a random number at the start of the game.</em></h6>
+            <h6><em><strong>2 · </strong>There are 5 crystals below. By clicking on a cristal you will add a specific amount of points to your total score.</em></h6>
+            <h6><em><strong>3 · </strong>You win the game by matching your total score to random number. You lose the game if you total score goes above the random number.</em></h6>
+            <h6><em><strong>4 · </strong>The value of each crystal is hidden from you until you click on it,</em></h6>
+            <h6><em><strong>5 · </strong>Each time when the game starts, the game will change the values of each crystal.</em></h6>
+        </div>
+        <!-- crystals -->
+        <div class="jumbotron">
+            <div class="row text-center">
+                <!-- crystal 1 -->
+                <div class="col-md-3 d-inline-block crystal-div">
+                    <button id="c1" value="1">
+                        <img  src="assets/images/crystals-01.png" alt="crystals-01">
+                    </button>
+                </div>
+                <!-- crystal 2 -->
+                <div class="col-md-3 d-inline-block crystal-div">
+                    <button id="c2" value="2">
+                        <img src="assets/images/crystals-02.png" alt="crystals-02">
+                    </button>
+                </div>
+                <!-- cristal 3 -->
+                <div class="col-md-3 d-inline-block crystal-div">
+                    <button id="c3" value="3">
+                        <img id="c3" src="assets/images/crystals-03.png" alt="crystals-03">
+                    </button>
+                </div>
+                <!-- cristal 4 -->
+                <div class="col-md-3 d-inline-block">
+                    <button id="c4" value="4">
+                        <img id="c4" src="assets/images/crystals-04.png" alt="crystals-04">
+                    </button>
+                </div>
+            </div>   
+        </div>
+        <!-- target number / score / wins / losses -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="jumbotron">
+                    <h5>Number to guess · <span id="number-to-guess">0</span></h4>
+                    <h5>Your total score · <span id="counter">0</span></h4>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="jumbotron">
+                    <h5>Wins · <span id="wins">0</span></h5>
+                    <h5>Losses · <span id="losses">0</span></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // Here we establish the 'randomTargerNumber' between 19 - 120.
+        var randomTargerNumber = Math.round(Math.random() * 120) + 1;
+        // alert(randomTargerNumber);
+        
+        // put targerNumber insie de span id = number-to-guess
+        $('#number-to-guess').text(randomTargerNumber);
+
+        // Here we created a counter, we'll be using this to track the user's total.
+        var counter = 0;
+        // Placeholder for wins
+        var wins = 0;
+        // Placeholder for losses
+        var losses = 0;
+        
+
+        // Each crystal should have a random hidden value between 1 - 12.
+        var c1 = Math.round(Math.random() * 12) + 1;
+        var c2 = Math.round(Math.random() * 11) + 1;
+        var c3 = Math.round(Math.random() * 10) + 1;
+        var c4 = Math.round(Math.random() * 9) + 1;
+        var randomNumberOptions = [c1, c2, c3, c4];
+        console.log(c1);
+
+
+
+        // FUNCTION
+        // EVENT click C1
+        $('#c1').on('click', function() {
+            // When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
+            counter += randomNumberOptions[0];
+            console.log(c1);
+            $('#counter').text(counter);
+                // Here we create some logic to 'check' if click counter matches with randomTargerNumber.
+                if (counter === randomTargerNumber) {
+                    wins++;
+                    $('#wins').text(wins);
+                    reset();
+                } else if (counter > randomTargerNumber) {
+                    losses++;
+                    $('#losses').text(losses);
+                    reset();
+                }
+        });
+            
+        // EVENT click C2
+        $('#c2').on('click', function() {
+            // When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
+            counter += randomNumberOptions[1];
+            $('#counter').text(counter);
+                // Here we create some logic to 'check' if click counter matches with randomTargerNumber.
+                if (counter === randomTargerNumber) {
+                    wins++;
+                    $('#wins').text(wins);
+                    reset();
+                } else if (counter > randomTargerNumber) {
+                    losses++;
+                    $('#losses').text(losses);
+                    reset();
+                }
+        });      
+        
+        // EVENT click C3
+        $('#c3').on('click', function() {
+            // When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
+            counter += randomNumberOptions[2];
+            $('#counter').text(counter);
+                // Here we create some logic to 'check' if click counter matches with randomTargerNumber.
+                if (counter === randomTargerNumber) {
+                    wins++;
+                    $('#wins').text(wins);
+                    reset();
+                } else if (counter > randomTargerNumber) {
+                    losses++;
+                    $('#losses').text(losses);
+                    reset();
+                }
+        });        
+        
+        // EVENT click C4
+        $('#c4').on('click', function() {
+            // When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
+            counter += randomNumberOptions[3];
+            $('#counter').text(counter);
+            // Here we create some logic to 'check' if click counter matches with randomTargerNumber.
+            if (counter === randomTargerNumber) {
+                wins++;
+                $('#wins').text(wins);
+                reset();
+            } else if (counter > randomTargerNumber) {
+                losses++;
+                $('#losses').text(losses);
+                reset();
+            }
+        });
+
+    function reset(){
+        counter = 0;
+        $('#counter').text(counter);
+        // randomTargerNumber = Math.floor(Math.random() * 50);
+        var minTargerNumber = 30; // minimum
+        var maxTargerNumber = 50; // maximum
+        var randomTargerNumber = Math.floor(Math.random() * (maxTargerNumber + 1 ) + minTargerNumber);
+        $('#number-to-guess').text(randomTargerNumber);
+        c1 = Math.round(Math.random() * 8) + 1;
+        c2 = Math.round(Math.random() * 7) + 1;
+        c3 = Math.round(Math.random() * 6) + 1;
+        c4 = Math.round(Math.random() * 5) + 1;
+    }
+
+
+    });
+    </script>
+</body>
+</html>
