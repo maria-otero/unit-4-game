@@ -1,11 +1,6 @@
 $(document).ready(function() {
     // Here we establish the 'randomTargerNumber' between 19 - 120.
     var randomTargerNumber = Math.floor(Math.random() * 102) + 19;
-    alert(randomTargerNumber);
-    
-    
-
-    alert(randomTargerNumber);
     // put targerNumber insie de span id = number-to-guess
     $('#number-to-guess').text(randomTargerNumber);
 
