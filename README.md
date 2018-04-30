@@ -1,26 +1,7 @@
 # unit-4-game
 
+Crystal Game:
+
 It is a guess game made it during UC Berkeley Extension Coding Bootcamp (April to July 2018) as part of a homework.
 
-Here you can read the given instructions:
-
-Crystal Game: The player will have to guess the answer, just like in Word Guess. This time, though, the player will guess with numbers instead of letters.
-
-·    There will be four crystals displayed as buttons on the page.
-
-·    The player will be shown a random number at the start of the game.
-
-·    When the player clicks on a crystal, it will add a specific amount of points to the player's total score.
-·    Your game will hide this amount until the player clicks a crystal.
-
-·    When they do click one, update the player's score counter.
-
-·    The player wins if their total score matches the random number from the beginning of the game.
-
-·    The player loses if their score goes above the random number.
-
-·    The game restarts whenever the player wins or loses.
-
-·    When the game begins again, the player should see a new random number. Also, all the crystals will have four new hidden values. Of course, the user's score (and score counter) will reset to zero.
-
-·    The app should show the number of games the player wins and loses. To that end, do not refresh the page as a means to restart the game.
+There are 4 clickable crystals, each one have a value that is sumed into a user score every time the user click them. The player wins when his total score matches with a random number given by the computer, and the player loses if his score goes above the random number.
